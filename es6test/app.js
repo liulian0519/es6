@@ -110,7 +110,6 @@ var newStu = student.reduce(function(news,stu){
 },[])
 console.log(newStu);
 //判断字符串中括号是否对称
-
 function balance(string){
     return !string.split("").reduce(function(prevous,char){
         if(prevous<0) {return prevous;}
