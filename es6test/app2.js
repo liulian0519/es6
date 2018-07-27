@@ -19,3 +19,42 @@ let template =
 </ul>
 `
 document.getElementById('template').innerHTML = template;
+
+
+// 箭头函数  缩减代码   改变this指向
+
+// const team ={
+//     members:["liulian","daidong"],
+//     teamName:"es6",
+//     teamSummary:function(){
+//         return this.members.map(function(mem){
+//             return `${mem}隶属于${this.teamName}小组`
+//         })
+//     }
+// }
+// //undefined
+// console.log(team.teamSummary());
+
+//es5 改进1
+// const team ={
+//     members:["liulian","daidong"],
+//     teamName:"es6",
+//     teamSummary:function(){
+//         var self = this;
+//         return this.members.map(function(mem){
+//             return `${mem}隶属于${self.teamName}小组`
+//         })
+//     }
+// }
+// console.log(team.teamSummary());
+//es5 改进2
+const team ={
+    members:["liulian","daidong"],
+    teamName:"es6",
+    teamSummary:function(){
+        return this.members.map(function(mem){
+            return `${mem}隶属于${this.teamName}小组`
+        }.bind(this))
+    }
+}
+console.log(team.teamSummary());
