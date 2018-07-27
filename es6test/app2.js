@@ -95,5 +95,27 @@ const books = [
 ]
 
 const bokshop = createBookshop(books);
-console.log(bokshop.booktotalPrice());
-console.log(bokshop.priceFoTitle("JS"));
+// console.log(bokshop.booktotalPrice());
+// console.log(bokshop.priceFoTitle("JS"));
+
+//展开运算符 ...
+var defaultCol = ["red","yellow"];
+var favouriteCol = ["blue","green"];
+//concat
+// defaultCol = defaultCol.concat(favouriteCol);
+// console.log(defaultCol);
+
+//展开运算符
+console.log([...defaultCol,...favouriteCol]);
+
+console.log(["tianjia","zidu",...defaultCol,...favouriteCol])
+
+// 小练习 shoppinglist
+function shoppinglist(...items){
+    if(items.indexOf('milk')<0){
+        return ["milk",...items]
+    }
+    return items;
+}
+console.log(shoppinglist("apple","eggs","banana"));
+
