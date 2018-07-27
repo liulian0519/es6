@@ -58,3 +58,42 @@ const team ={
     }
 }
 console.log(team.teamSummary());
+
+//增强对象字面量
+function createBookshop(books){
+    return {
+        book:books,
+        
+        booktotalPrice(){
+            //求所有书价格的总和
+            // return this.book.reduce(function(total,bo){
+            //    return  total +bo.price;
+            // },0)
+            // 使用箭头函数
+            return this.book.reduce((total,bo)=>{
+               return total+bo.price;   
+            },0);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+        },
+        // 根据书名查价格
+        priceFoTitle(title){
+            
+            // return this.book.find(function(bo){
+            //     return bo.title === title
+            // }).price
+            //箭头函数
+            return this.book.find(bo=>bo.title===title).price
+        }
+
+
+    }
+
+}
+
+const books = [
+    {title:"JS",price:60},
+    {title:"Vue",price:30}
+]
+
+const bokshop = createBookshop(books);
+console.log(bokshop.booktotalPrice());
+console.log(bokshop.priceFoTitle("JS"));
